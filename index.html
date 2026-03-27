@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Collector</title>
+    <meta name="description" content="Book your movie tickets easily.">
+    <!-- Premium Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="premium-theme">
+    
+    <!-- Transition/Loading Overlay -->
+    <div id="loading-overlay" class="loader-overlay hidden">
+        <div class="loader"></div>
+    </div>
+
+    <!-- App Navbar -->
+    <nav class="navbar premium-navbar">
+        <div class="nav-content">
+            <div class="logo cursor-pointer" id="nav-logo">🎬 FlixBook</div>
+            <div class="nav-auth">
+                <span id="user-name-display" class="user-greeting"></span>
+                <a href="#" id="logout-btn" class="logout-link">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container used for SPA views -->
+    <div class="app-container">
+        
+        <!-- View 1: Home (Movie Listing) -->
+        <main id="home-view" class="view active-view">
+            <div class="hero-section">
+                <h1>Now Showing</h1>
+                <p>Book tickets for the hottest movies right now.</p>
+            </div>
+            
+            <div id="movie-grid" class="movie-grid">
+                <!-- Javascript will inject 25 movies here -->
+            </div>
+        </main>
+
+        <!-- View 2: Movie Detail & Booking -->
+        <main id="movie-view" class="view hidden-view">
+            <button id="back-to-movies" class="btn-text">← Back to Movies</button>
+            
+            <div class="movie-detail-container">
+                <!-- Banner and Data -->
+                <div class="movie-banner glass-card" id="detail-banner">
+                    <div class="movie-poster-large">
+                        <img id="detail-img" src="" alt="Poster">
+                    </div>
+                    <div class="movie-info">
+                        <h2 id="detail-title">Movie Title</h2>
+                        <div class="movie-meta">
+                            <span class="badge genre" id="detail-genre">Genre</span>
+                            <span class="badge duration" id="detail-duration">120 min</span>
+                            <span class="badge rating">⭐ <span id="detail-rating">8.5</span></span>
+                        </div>
+                        <p id="detail-desc" class="movie-desc">Description goes here.</p>
+                        <p class="movie-price">Ticket Price: $<span id="detail-price">10</span></p>
+                    </div>
+                </div>
+
+                <!-- Seat Booking UI below details -->
+                <div class="booking-section glass-card">
+                    <h3>Select Your Seats</h3>
+                    
+                    <ul class="showcase">
+                        <li>
+                            <div class="seat gray-seat"></div>
+                            <small>Available</small>
+                        </li>
+                        <li>
+                            <div class="seat green-seat"></div>
+                            <small>Selected</small>
+                        </li>
+                        <li>
+                            <div class="seat red-seat"></div>
+                            <small>Booked</small>
+                        </li>
+                    </ul>
+
+                    <div class="theater">
+                        <div class="screen"></div>
+                        <div class="row-labels" id="theater-grid">
+                            <!-- Javascript will inject seats here -->
+                        </div>
+                    </div>
+
+                    <div class="booking-summary-box">
+                        <p class="summary-text">
+                            You have selected <span id="count">0</span> seats for a total of $<span id="total">0</span>
+                        </p>
+                        <button id="confirm-btn" class="btn-primary glow-btn" disabled>Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Booking Summary Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content glass-card">
+            <h2 style="color: #10b981; margin-bottom: 1.5rem;">Booking Confirmed! 🎉</h2>
+            <div class="modal-details">
+                <p><strong>Movie:</strong> <span id="modal-movie"></span></p>
+                <p><strong>Seats:</strong> <span id="modal-seats"></span></p>
+                <p class="modal-total">Total Paid: $<span id="modal-total"></span></p>
+            </div>
+            <button id="close-btn" class="btn-secondary">Close</button>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

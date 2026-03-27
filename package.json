@@ -1,0 +1,13 @@
+{
+  "name": "movie-ticket-booking",
+  "version": "1.0.0",
+  "description": "Movie Ticket Booking Application",
+  "main": "script.js",
+  "scripts": {
+    "dev": "npx live-server",
+    "start": "npx live-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
